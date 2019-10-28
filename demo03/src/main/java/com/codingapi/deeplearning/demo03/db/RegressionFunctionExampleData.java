@@ -4,7 +4,6 @@ import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -16,23 +15,14 @@ import java.io.IOException;
 @Component
 public class RegressionFunctionExampleData {
 
-    private String filePath = "init/data.bin";
-
-    public void randData(int number,double a,double b){
-        File file = new File(filePath);
-        INDArray array =  Nd4j.create(number,3);
-        System.out.println(array);
-        try {
-            Nd4j.saveBinary(array,file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private String filePath = "init/demo03.csv";
 
 
     public INDArray loadData(){
         try {
-            return Nd4j.readBinary(new File(filePath));
+            INDArray data =  Nd4j.readNumpy(filePath,",");
+            INDArray ones = Nd4j.ones(data.rows(),1);
+            return Nd4j.concat(1,ones,data);
         } catch (IOException e) {
             e.printStackTrace();
             return null;

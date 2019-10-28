@@ -17,16 +17,9 @@ class DeepLearningJavaDemo03ApplicationTests {
 
 
     @Test
-    void randomData() {
-        regressionFunctionExampleData.randData(100,1,2);
-    }
-
-
-    @Test
     void train(){
-        GradientDescentAlgorithmFunction gradientDescentAlgorithmFunction
-                = new GradientDescentAlgorithmFunction(0.01,10000);
-        INDArray exampleDataArrays =  regressionFunctionExampleData.loadData();
-        gradientDescentAlgorithmFunction.train(exampleDataArrays);
+        INDArray data = regressionFunctionExampleData.loadData();
+        GradientDescentAlgorithmFunction gradientDescentAlgorithmFunction = new GradientDescentAlgorithmFunction(0.01,20000,data);
+        gradientDescentAlgorithmFunction.train();
     }
 }

@@ -18,15 +18,15 @@ class DeepLearningJavaDemo02ApplicationTests {
 
     @Test
     void randomData() {
-        regressionFunctionExampleData.randData(100,1,2);
+        regressionFunctionExampleData.randData(100,15,300);
     }
 
 
     @Test
     void train(){
-        GradientDescentAlgorithmFunction gradientDescentAlgorithmFunction
-                = new GradientDescentAlgorithmFunction(0.01,10000);
         INDArray exampleDataArrays =  regressionFunctionExampleData.loadData();
-        gradientDescentAlgorithmFunction.train(exampleDataArrays);
+        GradientDescentAlgorithmFunction gradientDescentAlgorithmFunction
+                = new GradientDescentAlgorithmFunction(0.01,10000,exampleDataArrays);
+        gradientDescentAlgorithmFunction.train();
     }
 }

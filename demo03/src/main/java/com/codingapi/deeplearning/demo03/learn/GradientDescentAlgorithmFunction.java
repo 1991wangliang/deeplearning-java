@@ -1,8 +1,9 @@
-package com.codingapi.deeplearning.demo02.learn;
+package com.codingapi.deeplearning.demo03.learn;
 
 import lombok.extern.slf4j.Slf4j;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
+import org.nd4j.linalg.ops.transforms.Transforms;
 
 /**
  * 梯度下降算法
@@ -27,16 +28,17 @@ public class GradientDescentAlgorithmFunction {
      */
     private int batch;
 
+
     private INDArray x,y;
 
-
-    public GradientDescentAlgorithmFunction(double alpha,int batch,INDArray array) {
+    public GradientDescentAlgorithmFunction(double alpha, int batch,INDArray array) {
         this.alpha = alpha;
         this.batch = batch;
         this.thetaTemp = Nd4j.rand(array.columns()-1,1);
-        this.x =  array.getColumns(0,1);
-        this.y = array.getColumn(2);
+        this.x =  array.getColumns(0,1,2,3,4);
+        this.y = array.getColumn(5);
     }
+
 
     /**
      * 基于矩阵的 梯度下降算法
@@ -69,8 +71,11 @@ public class GradientDescentAlgorithmFunction {
         return hypothesisFunction(x).sub(y);
     }
 
+
     private INDArray hypothesisFunction(INDArray x){
-        return thetaTemp.transpose().mmul(x.transpose());
+        return Transforms.sigmoid(thetaTemp.transpose().mmul(x.transpose()));
     }
+
+
 
 }
