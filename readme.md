@@ -19,6 +19,17 @@ https://deeplearning4j.org/
 
 我会将实现的过程用视频方式来讲解，然后再将视频发布到B站和YouTube上，视频地址我会整理到下面，若大家有问题可以在知识星球([智慧探索实验室](images/discuss.jpg))上与我讨论。
 
+## 视频课程
+001 重新认识人工智能技术    
+https://www.youtube.com/watch?v=4qaXSGdK3S8  
+https://www.bilibili.com/video/av73467525  
+002 线性回归机器学习原理  
+https://www.youtube.com/watch?v=FCZIVqNY9GQ  
+https://www.bilibili.com/video/av73467652  
+003 线性回归机器学习java实现  
+https://www.bilibili.com/video/av73467810  
+https://www.youtube.com/watch?v=UGWr-O6PBug
+
 
 ## demo01
 实现一个简单的线性回归机器学习过程,基于数组方式。
