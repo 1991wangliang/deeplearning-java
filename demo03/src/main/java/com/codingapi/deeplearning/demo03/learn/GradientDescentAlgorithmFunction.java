@@ -72,7 +72,7 @@ public class GradientDescentAlgorithmFunction {
     }
 
 
-    private INDArray hypothesisFunction(INDArray x){
+    public INDArray hypothesisFunction(INDArray x){
         return Transforms.sigmoid(thetaTemp.transpose().mmul(x.transpose()));
     }
 
